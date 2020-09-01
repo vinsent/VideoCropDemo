@@ -205,12 +205,14 @@ static const CGFloat CropDurationMinLimit = 4.f;
         make.top.bottom.width.equalTo(self.leftView);
     }];
     [self.leftMask mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self);
+        make.left.equalTo(self.mas_left).offset(0);
         make.top.bottom.equalTo(self.leftView);
         make.right.equalTo(self.leftView.mas_right);
     }];
+    
+    CGFloat lastRight = MIN(self.collectionWidth + self.collectionView.contentInset.left - CGRectGetWidth(self.frame), 0);
     [self.rightMask mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self);
+        make.right.equalTo(self.mas_right).offset(lastRight);
         make.top.bottom.equalTo(self.rightView);
         make.left.equalTo(self.rightView.mas_left);
     }];
@@ -474,6 +476,16 @@ static const CGFloat CropDurationMinLimit = 4.f;
     if (scrollView.isDragging) {
         [self timeChangedWithLocation:CGRectGetMidX(self.scheduleIndicator.frame)];
     }
+    
+    CGFloat leftX = -MIN(scrollView.contentOffset.x, 0);
+    [self.leftMask mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.mas_left).offset(leftX);
+    }];
+    
+    CGFloat rightLast = self.collectionWidth - self.collectionView.contentOffset.x - CGRectGetWidth(self.collectionView.frame);
+    [self.rightMask mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.mas_right).offset(MIN(rightLast, 0));
+    }];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {

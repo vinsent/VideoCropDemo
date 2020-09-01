@@ -46,7 +46,7 @@ static inline CGFloat safeAreaInsetBottom() {
 
 @property (nonatomic, strong) VideoCropSliderView *editView;
 
-@property (nonatomic, strong) UIVisualEffectView *effectView;
+@property (nonatomic, strong) UIView *effectView;
 
 @property (nonatomic, strong) UILabel *choosedLabel;
 
@@ -198,11 +198,11 @@ static inline CGFloat safeAreaInsetBottom() {
     [self.editView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.height.mas_equalTo(80);
-        make.top.equalTo(self.effectView).mas_offset(49);
+        make.top.equalTo(self.effectView).mas_offset(24);
     }];
     [self.choosedLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(18);
-        make.bottom.equalTo(self.editView.mas_top).mas_offset(-5);
+        make.top.equalTo(self.editView.mas_bottom).mas_offset(24);
     }];
     [self.pauseButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
@@ -245,17 +245,18 @@ static inline CGFloat safeAreaInsetBottom() {
 }
 
 - (void)initEditEffectView {
-    _effectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+    _effectView = [UIView new];
+    _effectView.backgroundColor = UIColor.clearColor;
     [self.view addSubview:_effectView];
     CGFloat effectHeight = safeAreaInsetBottom() + 160;
     [_effectView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
         make.height.mas_equalTo(effectHeight);
     }];
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), effectHeight) byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(16, 16)];
-    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    shapeLayer.path = path.CGPath;
-    _effectView.layer.mask = shapeLayer;
+//    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), effectHeight) byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(16, 16)];
+//    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+//    shapeLayer.path = path.CGPath;
+//    _effectView.layer.mask = shapeLayer;
 }
 
 - (UIButton *)backButton {

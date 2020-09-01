@@ -18,7 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    VideoCropViewController *vc = [VideoCropViewController new];
+    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"IMG_8849" withExtension:@"MP4"];
+    VideoCropViewController *vc = [[VideoCropViewController alloc] initWithFileURL:fileURL];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

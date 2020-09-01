@@ -46,7 +46,7 @@ static inline CGFloat safeAreaInsetBottom() {
 
 @property (nonatomic, strong) VideoCropSliderView *editView;
 
-@property (nonatomic, strong) UIView *effectView;
+@property (nonatomic, strong) UIView *editContainerView;
 
 @property (nonatomic, strong) UILabel *choosedLabel;
 
@@ -59,10 +59,9 @@ static inline CGFloat safeAreaInsetBottom() {
 
 @implementation VideoCropViewController
 
-- (instancetype)init {
+- (instancetype)initWithFileURL:(NSURL *)url {
     if (self = [super init]) {
-        NSURL *file = [[NSBundle mainBundle] URLForResource:@"IMG_8849" withExtension:@"MP4"];
-        _item = [[AVPlayerItem alloc] initWithURL:file];
+        _item = [[AVPlayerItem alloc] initWithURL:url];
         self.player = [AVPlayer playerWithPlayerItem:_item];
     }
     return self;
@@ -191,14 +190,14 @@ static inline CGFloat safeAreaInsetBottom() {
 
 - (void)initializeSubviews {
     [self initNavigationView];
-    [self initEditEffectView];
+    [self initEditContainerView];
     [self.view addSubview:self.editView];
     [self.view addSubview:self.choosedLabel];
     [self.view addSubview:self.pauseButton];
     [self.editView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.height.mas_equalTo(80);
-        make.top.equalTo(self.effectView).mas_offset(24);
+        make.top.equalTo(self.editContainerView).mas_offset(24);
     }];
     [self.choosedLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(18);
@@ -244,19 +243,15 @@ static inline CGFloat safeAreaInsetBottom() {
     }];
 }
 
-- (void)initEditEffectView {
-    _effectView = [UIView new];
-    _effectView.backgroundColor = UIColor.clearColor;
-    [self.view addSubview:_effectView];
+- (void)initEditContainerView {
+    _editContainerView = [UIView new];
+    _editContainerView.backgroundColor = UIColor.clearColor;
+    [self.view addSubview:_editContainerView];
     CGFloat effectHeight = safeAreaInsetBottom() + 160;
-    [_effectView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_editContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
         make.height.mas_equalTo(effectHeight);
     }];
-//    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), effectHeight) byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(16, 16)];
-//    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-//    shapeLayer.path = path.CGPath;
-//    _effectView.layer.mask = shapeLayer;
 }
 
 - (UIButton *)backButton {

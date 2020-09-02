@@ -16,7 +16,6 @@
 		B70AC90424FE154D001AA4DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC90324FE154D001AA4DE /* main.m */; };
 		B70AC90C24FE1645001AA4DE /* VideoCropSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC90A24FE1645001AA4DE /* VideoCropSliderView.m */; };
 		B70AC90F24FE1651001AA4DE /* VideoCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC90D24FE1651001AA4DE /* VideoCropViewController.m */; };
-		B70AC91124FE16C2001AA4DE /* IMG_8849.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = B70AC91024FE16C2001AA4DE /* IMG_8849.MP4 */; };
 		B70AC91424FE1707001AA4DE /* VideoCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC91324FE1707001AA4DE /* VideoCoverCell.m */; };
 		B70AC91624FF206F001AA4DE /* caitou.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B70AC91524FF206F001AA4DE /* caitou.MOV */; };
 /* End PBXBuildFile section */
@@ -39,7 +38,6 @@
 		B70AC90B24FE1645001AA4DE /* VideoCropSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCropSliderView.h; sourceTree = "<group>"; };
 		B70AC90D24FE1651001AA4DE /* VideoCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCropViewController.m; sourceTree = "<group>"; };
 		B70AC90E24FE1651001AA4DE /* VideoCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCropViewController.h; sourceTree = "<group>"; };
-		B70AC91024FE16C2001AA4DE /* IMG_8849.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = IMG_8849.MP4; sourceTree = "<group>"; };
 		B70AC91224FE1707001AA4DE /* VideoCoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCoverCell.h; sourceTree = "<group>"; };
 		B70AC91324FE1707001AA4DE /* VideoCoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCoverCell.m; sourceTree = "<group>"; };
 		B70AC91524FF206F001AA4DE /* caitou.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = caitou.MOV; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 				B70AC91224FE1707001AA4DE /* VideoCoverCell.h */,
 				B70AC91324FE1707001AA4DE /* VideoCoverCell.m */,
 				B70AC91524FF206F001AA4DE /* caitou.MOV */,
-				B70AC91024FE16C2001AA4DE /* IMG_8849.MP4 */,
 				B70AC8FA24FE154B001AA4DE /* Main.storyboard */,
 				B70AC8FD24FE154D001AA4DE /* Assets.xcassets */,
 				B70AC8FF24FE154D001AA4DE /* LaunchScreen.storyboard */,
@@ -175,7 +172,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B70AC91124FE16C2001AA4DE /* IMG_8849.MP4 in Resources */,
 				B70AC90124FE154D001AA4DE /* LaunchScreen.storyboard in Resources */,
 				B70AC8FE24FE154D001AA4DE /* Assets.xcassets in Resources */,
 				B70AC8FC24FE154B001AA4DE /* Main.storyboard in Resources */,

@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"IMG_8849" withExtension:@"MP4"];
+    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"caitou" withExtension:@"MOV"];
     VideoCropViewController *vc = [[VideoCropViewController alloc] initWithFileURL:fileURL];
     [self.navigationController pushViewController:vc animated:YES];
 }
